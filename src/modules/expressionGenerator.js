@@ -21,7 +21,6 @@ const generateExpression = () => {
         Math.floor(Math.random() * 9 + 1)
       );
     });
-    console.log(expression);
     resultIsInteger = Number.isInteger(solveExpression(expression));
     if (resultIsInteger) finalExpression = expression;
   } while (!resultIsInteger);
