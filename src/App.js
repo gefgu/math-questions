@@ -1,3 +1,6 @@
+import "./styles/fonts.css";
+import "./styles/app.css";
+
 import generateExpression from "./modules/expressionGenerator";
 import solveExpression from "./modules/expressionSolver";
 
@@ -8,15 +11,15 @@ function App() {
   return (
     <div className="container">
       <div className="question">
-        <h1>Calcule:</h1>
-        <h2>{expression}</h2>
+        <h1>Resolva a Expressão:</h1>
+        <h2 className="expression">{expression}</h2>
       </div>
       <div>
-        <p>a) {correctResult}</p>
-        <p>b) {correctResult + 2}</p>
-        <p>c) {correctResult - 5}</p>
-        <p>d) {correctResult + 7}</p>
-        <p>e) {correctResult - 10}</p>
+        <p className="answer">a) {correctResult}</p>
+        <p className="answer">b) {correctResult + 2}</p>
+        <p className="answer">c) {correctResult - 5}</p>
+        <p className="answer">d) {correctResult + 7}</p>
+        <p className="answer">e) {correctResult - 10}</p>
       </div>
     </div>
   );
