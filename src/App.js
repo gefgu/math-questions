@@ -2,11 +2,21 @@ import "./styles/fonts.css";
 import "./styles/app.css";
 
 import generateExpression from "./modules/expressionGenerator";
-import { solveExpression } from "./modules/expressionSolver";
+import {
+  getFourWrongAnswersFromExpression,
+  solveExpression,
+} from "./modules/expressionSolver";
+import shuffle from "./modules/shuffleArray";
 
 function App() {
   const expression = generateExpression();
   const correctResult = solveExpression(expression);
+  console.log(correctResult);
+  const wrongAnswers = getFourWrongAnswersFromExpression(
+    expression,
+    correctResult
+  );
+  const answers = shuffle(wrongAnswers.concat(correctResult));
 
   return (
     <div className="container">
@@ -15,11 +25,14 @@ function App() {
         <h2 className="expression">{expression}</h2>
       </div>
       <div>
-        <p className="answer">a) {correctResult}</p>
-        <p className="answer">b) {correctResult + 2}</p>
-        <p className="answer">c) {correctResult - 5}</p>
-        <p className="answer">d) {correctResult + 7}</p>
-        <p className="answer">e) {correctResult - 10}</p>
+        {answers.map((answer, index) => {
+          const letters = ["a", "b", "c", "d", "e"];
+          return (
+            <p className="answer" key={answer}>
+              {letters[index]}) {answer}
+            </p>
+          );
+        })}
       </div>
     </div>
   );

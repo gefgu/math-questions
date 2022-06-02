@@ -1,5 +1,7 @@
 const numberPattern = /[0-9]+/g;
 const operatorPattern = /[-+x÷]/g;
+const twoNumbersWithSumOrSubtraction = /([0-9])+([-+])([0-9])+/g;
+const twoNumbersWithMultiplicationOrDivision = /([0-9])+([x÷])([0-9])+/g;
 
 const solveTwoNumbersWithOperator = (expression) => {
   const operatorMapping = {
@@ -23,8 +25,6 @@ const solveUntilPatternOfTwoEnds = (expression, pattern) => {
 };
 
 const solveFourPrimaryOperations = (expression) => {
-  const twoNumbersWithSumOrSubtraction = /([0-9])+([-+])([0-9])+/g;
-  const twoNumbersWithMultiplicationOrDivision = /([0-9])+([x÷])([0-9])+/g;
   expression = solveUntilPatternOfTwoEnds(
     expression,
     twoNumbersWithMultiplicationOrDivision
@@ -73,4 +73,46 @@ const solveExpression = (expression) => {
   return +expression;
 };
 
-export default solveExpression;
+const getFourWrongAnswersFromExpression = (expression, correctResult) => {
+  const answers = [];
+  const addToAnswers = (value) => {
+    value = Math.floor(value);
+    if (answers.includes(value) || value === correctResult) {
+      addToAnswers(value + Math.floor(Math.random() * 20));
+    } else if (Number.isNaN(value)) {
+      addToAnswers(correctResult + Math.floor(Math.random() * 20));
+    } else {
+      answers.push(value);
+    }
+  };
+
+  expression = cleanExpression(expression);
+
+  ((expression) => {
+    expression = solveUntilPatternOfTwoEnds(
+      expression,
+      twoNumbersWithSumOrSubtraction
+    );
+
+    const finalResult = Math.floor(solveExpression(expression));
+    addToAnswers(finalResult);
+  })(expression);
+
+  ((expression) => {
+    expression = solveUntilPatternOfTwoEnds(
+      expression,
+      twoNumbersWithMultiplicationOrDivision
+    );
+
+    const finalResult = Math.floor(solveExpression(expression));
+    addToAnswers(finalResult);
+  })(expression);
+
+  addToAnswers(correctResult / 2);
+  addToAnswers(correctResult * 2);
+  
+
+  return answers;
+};
+
+export { solveExpression, getFourWrongAnswersFromExpression };
