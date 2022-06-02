@@ -8,10 +8,19 @@ const solveTwoNumbersWithOperator = (expression) => {
     x: (a, b) => a * b,
     "÷": (a, b) => a / b,
   };
+  console.log(expression);
   const numbers = expression.match(numberPattern);
   const operator = expression.match(operatorPattern);
 
   return operatorMapping[operator](numbers[0], numbers[1]);
+};
+
+const solveUntilPatternEnds = (expression, pattern) => {
+  while (expression.match(pattern)) {
+    const match = expression.match(pattern)[0];
+    expression = expression.replace(match, solveTwoNumbersWithOperator(match));
+  }
+  return expression;
 };
 
 const solveExpression = (expression) => {
@@ -19,15 +28,15 @@ const solveExpression = (expression) => {
   const twoNumbersWithSumOrSubtraction = /([0-9])+([-+])([0-9])+/g;
   const twoNumbersWithMultiplicationOrDivision = /([0-9])+([x÷])([0-9])+/g;
 
-  while (expression.match(twoNumbersWithMultiplicationOrDivision)) {
-    const match = expression.match(twoNumbersWithMultiplicationOrDivision)[0];
-    expression = expression.replace(match, solveTwoNumbersWithOperator(match));
-  }
+  expression = solveUntilPatternEnds(
+    expression,
+    twoNumbersWithMultiplicationOrDivision
+  );
 
-  while (expression.match(twoNumbersWithSumOrSubtraction)) {
-    const match = expression.match(twoNumbersWithSumOrSubtraction)[0];
-    expression = expression.replace(match, solveTwoNumbersWithOperator(match));
-  }
+  expression = solveUntilPatternEnds(
+    expression,
+    twoNumbersWithSumOrSubtraction
+  );
 
   return +expression;
 };

@@ -2,37 +2,37 @@ import solveExpression  from "./expressionSolver";
 
 describe("Solving Expressions", () => {
 
-  test.only("Sum", () => {
+  test("Sum", () => {
     const expression = "6 + 4";
     expect(solveExpression(expression)).toBe(10);
   });
 
-  test.only("Simple subtraction", () => {
+  test("Simple subtraction", () => {
     const expression = "6 - 4";
     expect(solveExpression(expression)).toBe(2);
   });
 
-  test.only("Sum and Subtraction", () => {
+  test("Sum and Subtraction", () => {
     const expression = "6 - 4 + 3";
     expect(solveExpression(expression)).toBe(5);
   });
 
-  test.only("Multiplication", () => {
+  test("Multiplication", () => {
     const expression = "6 x 3";
     expect(solveExpression(expression)).toBe(18);
   });
 
-  test.only("Division", () => {
+  test("Division", () => {
     const expression = "6 ÷ 3";
     expect(solveExpression(expression)).toBe(2);
   });
 
-  test.only("Multiplication and Division", () => {
+  test("Multiplication and Division", () => {
     const expression = "6 x 4 ÷ 3";
     expect(solveExpression(expression)).toBe(8);
   });
 
-  test.only("Correct precedence", () => {
+  test("Correct precedence", () => {
     const expression = "6 + 4 x 3 - 6 ÷ 3";
     expect(solveExpression(expression)).toBe(16);
   });
