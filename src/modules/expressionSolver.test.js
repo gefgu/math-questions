@@ -37,7 +37,7 @@ describe("Solving Expressions", () => {
     expect(solveExpression(expression)).toBe(16);
   });
 
-  test("Correct precedence using parentheses", () => {
+  test.only("Correct precedence using parentheses", () => {
     const expression = "(6 + 4) x 3 - 6 ÷ 3";
     expect(solveExpression(expression)).toBe(28);
   });

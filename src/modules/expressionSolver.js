@@ -23,11 +23,9 @@ const solveUntilPatternEnds = (expression, pattern) => {
   return expression;
 };
 
-const solveExpression = (expression) => {
-  expression = expression.replaceAll(" ", "").toLowerCase();
+const solveFourPrimaryOperations = (expression) => {
   const twoNumbersWithSumOrSubtraction = /([0-9])+([-+])([0-9])+/g;
   const twoNumbersWithMultiplicationOrDivision = /([0-9])+([x÷])([0-9])+/g;
-
   expression = solveUntilPatternEnds(
     expression,
     twoNumbersWithMultiplicationOrDivision
@@ -37,6 +35,30 @@ const solveExpression = (expression) => {
     expression,
     twoNumbersWithSumOrSubtraction
   );
+
+  return expression;
+};
+
+// const solveParentheses = (expression) => {
+
+//   return expression;
+// }
+
+const solveExpression = (expression) => {
+  expression = expression.replaceAll(" ", "").toLowerCase();
+
+  // const numbersInsideParentheses = /\(.+\)/g;
+
+  // expression = solveParentheses()
+
+  // while (expression.match(numbersInsideParentheses)) {
+  //   const match = expression.match(numbersInsideParentheses)[0];
+  //   console.log(expression);
+  //   expression = expression.replace(match, 1);
+  // }
+  // console.log(parenthesesMatch.replace(/[()]/g, ""));
+
+  expression = solveFourPrimaryOperations(expression);
 
   return +expression;
 };
