@@ -27,12 +27,12 @@ describe("Solving Expressions", () => {
     expect(solveExpression(expression)).toBe(2);
   });
 
-  test("Multiplication and Division", () => {
+  test.only("Multiplication and Division", () => {
     const expression = "6 x 4 ÷ 3";
     expect(solveExpression(expression)).toBe(8);
   });
 
-  test("Correct precedence", () => {
+  test.only("Correct precedence", () => {
     const expression = "6 + 4 x 3 - 6 ÷ 3";
     expect(solveExpression(expression)).toBe(16);
   });
