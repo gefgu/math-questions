@@ -43,10 +43,15 @@ const solveParentheses = (expression) => {
 
   while (expression.match(numbersInsideParentheses)) {
     const match = expression.match(numbersInsideParentheses)[0];
-    expression = expression.replace(
-      match,
-      solveFourPrimaryOperations(match.replace(/[()]/g, ""))
-    );
+    const subMatch = match.substring(1, match.length - 1);
+    if (subMatch.includes("(") && subMatch.includes(")")) {
+      expression = expression.replace(match, `(${solveParentheses(subMatch)})`);
+    } else {
+      expression = expression.replace(
+        match,
+        solveFourPrimaryOperations(subMatch)
+      );
+    }
   }
 
   return expression;
@@ -54,6 +59,7 @@ const solveParentheses = (expression) => {
 
 const solveExpression = (expression) => {
   expression = expression.replaceAll(" ", "").toLowerCase();
+  expression = expression.replaceAll("[", "(").replaceAll("]", ")");
 
   expression = solveParentheses(expression);
 
