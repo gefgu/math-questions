@@ -8,14 +8,13 @@ const solveTwoNumbersWithOperator = (expression) => {
     x: (a, b) => a * b,
     "÷": (a, b) => a / b,
   };
-  console.log(expression);
   const numbers = expression.match(numberPattern);
   const operator = expression.match(operatorPattern);
 
   return operatorMapping[operator](numbers[0], numbers[1]);
 };
 
-const solveUntilPatternEnds = (expression, pattern) => {
+const solveUntilPatternOfTwoEnds = (expression, pattern) => {
   while (expression.match(pattern)) {
     const match = expression.match(pattern)[0];
     expression = expression.replace(match, solveTwoNumbersWithOperator(match));
@@ -26,37 +25,37 @@ const solveUntilPatternEnds = (expression, pattern) => {
 const solveFourPrimaryOperations = (expression) => {
   const twoNumbersWithSumOrSubtraction = /([0-9])+([-+])([0-9])+/g;
   const twoNumbersWithMultiplicationOrDivision = /([0-9])+([x÷])([0-9])+/g;
-  expression = solveUntilPatternEnds(
+  expression = solveUntilPatternOfTwoEnds(
     expression,
     twoNumbersWithMultiplicationOrDivision
   );
 
-  expression = solveUntilPatternEnds(
+  expression = solveUntilPatternOfTwoEnds(
     expression,
     twoNumbersWithSumOrSubtraction
   );
 
-  return expression;
+  return +expression;
 };
 
-// const solveParentheses = (expression) => {
+const solveParentheses = (expression) => {
+  const numbersInsideParentheses = /\(.+\)/g;
 
-//   return expression;
-// }
+  while (expression.match(numbersInsideParentheses)) {
+    const match = expression.match(numbersInsideParentheses)[0];
+    expression = expression.replace(
+      match,
+      solveFourPrimaryOperations(match.replace(/[()]/g, ""))
+    );
+  }
+
+  return expression;
+};
 
 const solveExpression = (expression) => {
   expression = expression.replaceAll(" ", "").toLowerCase();
 
-  // const numbersInsideParentheses = /\(.+\)/g;
-
-  // expression = solveParentheses()
-
-  // while (expression.match(numbersInsideParentheses)) {
-  //   const match = expression.match(numbersInsideParentheses)[0];
-  //   console.log(expression);
-  //   expression = expression.replace(match, 1);
-  // }
-  // console.log(parenthesesMatch.replace(/[()]/g, ""));
+  expression = solveParentheses(expression);
 
   expression = solveFourPrimaryOperations(expression);
 
