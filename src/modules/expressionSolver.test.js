@@ -12,7 +12,7 @@ describe("Solving Expressions", () => {
     expect(solveExpression(expression)).toBe(2);
   });
 
-  test("Sum and Subtraction", () => {
+  test.only("Sum and Subtraction", () => {
     const expression = "6 - 4 + 3";
     expect(solveExpression(expression)).toBe(5);
   });
