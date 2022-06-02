@@ -1,8 +1,8 @@
-import { solveExpression } from "./expressionSolver.js";
+import solveExpression  from "./expressionSolver";
 
 describe("Solving Expressions", () => {
 
-  test("Sum", () => {
+  test.only("Sum", () => {
     const expression = "6 + 4";
     expect(solveExpression(expression)).toBe(10);
   });
