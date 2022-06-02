@@ -1,10 +1,12 @@
 const numberPattern = /[0-9]+/g;
-const operatorPattern = /[+-]/g;
+const operatorPattern = /[-+x÷]/g;
 
 const solveTwoNumbersWithOperator = (expression) => {
   const operatorMapping = {
     "+": (a, b) => +a + +b,
     "-": (a, b) => +a - +b,
+    x: (a, b) => a * b,
+    "÷": (a, b) => a / b,
   };
   const numbers = expression.match(numberPattern);
   const operator = expression.match(operatorPattern);
@@ -13,8 +15,8 @@ const solveTwoNumbersWithOperator = (expression) => {
 };
 
 const solveExpression = (expression) => {
-  expression = expression.replaceAll(" ", "");
-  const twoNumbersWithOperatorPattern = /([0-9])+([+-])([0-9])+/g;
+  expression = expression.replaceAll(" ", "").toLowerCase();
+  const twoNumbersWithOperatorPattern = /([0-9])+([-+x÷])([0-9])+/g;
   while (expression.match(twoNumbersWithOperatorPattern)) {
     const match = expression.match(twoNumbersWithOperatorPattern)[0];
     expression = expression.replace(

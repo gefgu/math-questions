@@ -17,12 +17,12 @@ describe("Solving Expressions", () => {
     expect(solveExpression(expression)).toBe(5);
   });
 
-  test("Multiplication", () => {
-    const expression = "6 * 3";
+  test.only("Multiplication", () => {
+    const expression = "6 x 3";
     expect(solveExpression(expression)).toBe(18);
   });
 
-  test("Division", () => {
+  test.only("Division", () => {
     const expression = "6 ÷ 3";
     expect(solveExpression(expression)).toBe(2);
   });
