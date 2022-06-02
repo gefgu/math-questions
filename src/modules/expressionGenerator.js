@@ -1,4 +1,4 @@
-import solveExpression from "./expressionSolver";
+import {solveExpression} from "./expressionSolver";
 
 const generateExpression = () => {
   const expressionTemplates = [

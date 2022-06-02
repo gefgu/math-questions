@@ -2,7 +2,7 @@ import "./styles/fonts.css";
 import "./styles/app.css";
 
 import generateExpression from "./modules/expressionGenerator";
-import solveExpression from "./modules/expressionSolver";
+import { solveExpression } from "./modules/expressionSolver";
 
 function App() {
   const expression = generateExpression();
