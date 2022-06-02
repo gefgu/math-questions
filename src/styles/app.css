@@ -27,3 +27,7 @@ h1 {
 .answer {
   font-size: 1.25rem;
 }
+
+.answer .letter {
+  font-weight: bold;
+}

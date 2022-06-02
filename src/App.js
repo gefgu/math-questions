@@ -29,7 +29,7 @@ function App() {
           const letters = ["a", "b", "c", "d", "e"];
           return (
             <p className="answer" key={answer}>
-              {letters[index]}) {answer}
+              <span className="letter">{letters[index]})</span> {answer}
             </p>
           );
         })}
