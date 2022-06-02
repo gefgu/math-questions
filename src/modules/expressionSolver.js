@@ -57,9 +57,14 @@ const solveParentheses = (expression) => {
   return expression;
 };
 
-const solveExpression = (expression) => {
+const cleanExpression = (expression) => {
   expression = expression.replaceAll(" ", "").toLowerCase();
   expression = expression.replaceAll("[", "(").replaceAll("]", ")");
+  return expression;
+};
+
+const solveExpression = (expression) => {
+  expression = cleanExpression(expression);
 
   expression = solveParentheses(expression);
 
