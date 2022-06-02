@@ -1,7 +1,6 @@
-import solveExpression  from "./expressionSolver";
+import solveExpression from "./expressionSolver";
 
 describe("Solving Expressions", () => {
-
   test("Sum", () => {
     const expression = "6 + 4";
     expect(solveExpression(expression)).toBe(10);
@@ -45,5 +44,10 @@ describe("Solving Expressions", () => {
   test("General Expression with parentheses and brackets", () => {
     const expression = "[30 + 2 x (5-3)] x 2 - 10";
     expect(solveExpression(expression)).toBe(58);
+  });
+
+  test("Decimal Numbers", () => {
+    const expression = "10 ÷ 3";
+    expect(solveExpression(expression)).toBe(10 / 3);
   });
 });
