@@ -7,7 +7,7 @@ describe("Solving Expressions", () => {
     expect(solveExpression(expression)).toBe(10);
   });
 
-  test("Simple subtraction", () => {
+  test.only("Simple subtraction", () => {
     const expression = "6 - 4";
     expect(solveExpression(expression)).toBe(2);
   });
