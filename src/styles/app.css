@@ -5,7 +5,7 @@ body {
 .container {
   padding: 16px;
   margin: auto;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 h1 {
@@ -25,7 +25,7 @@ h1 {
 }
 
 .answer {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .answer .letter {
