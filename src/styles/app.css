@@ -25,7 +25,13 @@ h1 {
 .expression {
   font-weight: 900;
   font-size: 3rem;
-  margin-top: 16px;
+  margin: 16px 0;
+}
+
+.bar {
+  margin-left: 0;
+  width: 10%;
+  margin-bottom: 32px;
 }
 
 .answer {
