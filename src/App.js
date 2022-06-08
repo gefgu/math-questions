@@ -3,6 +3,7 @@ import "./styles/app.css";
 
 import Question from "./components/Question";
 import { simplifyExpression } from "mathsteps";
+import ResolutionStep from "./components/ResolutionStep";
 
 function App() {
   // const expression = generateExpression();
@@ -19,7 +20,11 @@ function App() {
       <Question
         expression={expression.replaceAll("*", "x").replaceAll("/", "÷")}
       />
-
+      <div className="resolution">
+        {steps.map((step, index) => {
+          return <ResolutionStep step={step} delay={(index + 1) * 1000} />;
+        })}
+      </div>
     </div>
   );
 }
