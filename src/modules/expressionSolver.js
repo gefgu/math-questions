@@ -74,6 +74,8 @@ const solveExpression = (expression) => {
 };
 
 const getFourWrongAnswersFromExpression = (expression, correctResult) => {
+  return [1, 2, 3, 4];
+
   const answers = [];
   const addToAnswers = (value) => {
     value = Math.floor(value);
@@ -110,7 +112,6 @@ const getFourWrongAnswersFromExpression = (expression, correctResult) => {
 
   addToAnswers(correctResult / 2);
   addToAnswers(correctResult * 2);
-  
 
   return answers;
 };

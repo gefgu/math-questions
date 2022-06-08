@@ -1,27 +1,31 @@
-import {solveExpression} from "./expressionSolver";
+import { evaluate } from "mathjs";
 
 const generateExpression = () => {
   const expressionTemplates = [
-    "a + b x c - d ÷ e",
-    "(a + b) x c - d ÷ e",
-    "a - b x (c + d) ÷ e",
-    "a - b ÷ c + d x e",
+    "a + b * c - d / e",
+    "(a + b) * c - d / e",
+    "a - b * (c + d) / e",
+    "a - b / c + d * e",
+    "a / b + c * d / e",
+    "a - b * c + d * e",
+    "a * b / c + d - e",
   ];
 
-  const choosenTemplate =
-    expressionTemplates[Math.floor(Math.random() * expressionTemplates.length)];
-
   let resultIsInteger = false;
-  let finalExpression = choosenTemplate;
+  let finalExpression;
   do {
-    let expression = choosenTemplate;
+    let expression =
+      expressionTemplates[
+        Math.floor(Math.random() * expressionTemplates.length)
+      ];
     ["a", "b", "c", "d", "e"].forEach((letter) => {
       expression = expression.replace(
         letter,
         Math.floor(Math.random() * 9 + 1)
       );
     });
-    resultIsInteger = Number.isInteger(solveExpression(expression));
+    console.log(expression);
+    resultIsInteger = Number.isInteger(evaluate(expression));
     if (resultIsInteger) finalExpression = expression;
   } while (!resultIsInteger);
   return finalExpression;
