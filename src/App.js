@@ -26,7 +26,7 @@ function App() {
           return (
             <ResolutionStep
               step={step}
-              delay={index * 2000}
+              delay={(index + 1) * 2000}
               isResult={index === steps.length - 1}
             />
           );
