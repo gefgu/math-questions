@@ -13,6 +13,7 @@ function App() {
 
   console.log(expression);
   steps = steps.map((step) => step.newNode.toString());
+  steps.unshift(expression);
   console.log(steps);
 
   return (
@@ -22,13 +23,17 @@ function App() {
       />
       <div className="resolution">
         {steps.map((step, index) => {
-          return <ResolutionStep step={step} delay={(index + 1) * 1000} />;
+          return (
+            <ResolutionStep
+              step={step}
+              delay={(index + 1) * 1500}
+              isResult={index === steps.length - 1}
+            />
+          );
         })}
       </div>
     </div>
   );
 }
-
-// Amend next commit
 
 export default App;

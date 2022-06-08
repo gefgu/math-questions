@@ -25,6 +25,12 @@ h1 {
   font-family: "Work Sans", sans-serif;
 }
 
+.answer.result {
+  font-weight: lighter;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
 .expression {
   font-weight: 900;
   font-size: 3rem;
