@@ -7,6 +7,7 @@ import {
   solveExpression,
 } from "./modules/expressionSolver";
 import shuffle from "./modules/shuffleArray";
+import Question from "./components/Question";
 
 function App() {
   const expression = generateExpression();
@@ -20,11 +21,7 @@ function App() {
 
   return (
     <div className="container">
-      <div className="question">
-        <h1>Resolva a Expressão:</h1>
-        <h2 className="expression">{expression}</h2>
-        <hr className="bar"/>
-      </div>
+      <Question expression={expression} />
       <div>
         {answers.map((answer, index) => {
           const letters = ["a", "b", "c", "d", "e"];
