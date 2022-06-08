@@ -4,10 +4,10 @@ import "./styles/app.css";
 import Question from "./components/Question";
 import { simplifyExpression } from "mathsteps";
 import ResolutionStep from "./components/ResolutionStep";
+import generateExpression from "./modules/expressionGenerator";
 
 function App() {
-  // const expression = generateExpression();
-  const expression = "6 + 3 * 4 - 8 / 4";
+  const expression = generateExpression();
 
   let steps = simplifyExpression(expression);
 
@@ -26,7 +26,7 @@ function App() {
           return (
             <ResolutionStep
               step={step}
-              delay={(index + 1) * 1500}
+              delay={(index + 1) * 200}
               isResult={index === steps.length - 1}
             />
           );

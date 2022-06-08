@@ -9,7 +9,7 @@ const ResolutionStep = ({ step, delay, isResult }) => {
   });
   return (
     <animated.p style={props} className={`answer ${isResult ? "result" : ""}`}>
-      {step}
+      {step} {isResult ? "" : "="}
     </animated.p>
   );
 };
