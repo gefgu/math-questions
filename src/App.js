@@ -39,7 +39,7 @@ function App() {
     return {
       transform: `translateX(${Math.floor(
         Math.random() * 499
-      )}px) translateY(${Math.floor(Math.random() * 200)}px) scale(${Math.floor(
+      )}px) translateY(${Math.floor(Math.random() * 400)}px) scale(${Math.floor(
         Math.random() * 4
       )})`,
     };

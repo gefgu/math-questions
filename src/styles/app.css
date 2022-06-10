@@ -9,14 +9,16 @@ body {
   margin: auto;
   max-width: 500px;
   position: relative;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
   font-family: Lato, sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   font-size: 1.75rem;
   text-transform: uppercase;
   margin-bottom: 16px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .expression {
