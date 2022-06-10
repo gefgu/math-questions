@@ -1,11 +1,14 @@
 body {
   margin: 0;
+  background-color: #e80202;
+  color: white
 }
 
 .container {
   padding: 16px;
   margin: auto;
   max-width: 500px;
+  position: relative;
 }
 
 h1 {
@@ -13,7 +16,6 @@ h1 {
   font-weight: 900;
   font-size: 1.75rem;
   text-transform: uppercase;
-  opacity: 0.8;
   margin-bottom: 16px;
 }
 
@@ -41,6 +43,7 @@ h1 {
   margin-left: 0;
   width: 10%;
   margin-bottom: 32px;
+  border: 1px solid white;
 }
 
 .answer {
@@ -49,4 +52,15 @@ h1 {
 
 .answer .letter {
   font-weight: lighter;
+}
+
+.block {
+  width: 25px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #e80202;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: -1;
 }
