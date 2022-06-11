@@ -25,8 +25,8 @@ function App() {
       translateY: () => anime.random(0, containerRef.current.clientHeight),
       scale: () => anime.random(1, 3),
       easing: "linear",
-      duration: 2000,
-      delay: anime.stagger(1),
+      duration: 5000,
+      delay: anime.stagger(5),
       complete: animateBlocks,
     });
   };
@@ -68,7 +68,7 @@ function App() {
           return (
             <ResolutionStep
               step={step}
-              delay={(index + 1) * 2000}
+              delay={(index + 1) * 5000}
               isResult={index === steps.length - 1}
             />
           );
