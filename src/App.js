@@ -23,10 +23,10 @@ function App() {
       targets: ".block",
       translateX: () => anime.random(0, 500),
       translateY: () => anime.random(0, containerRef.current.clientHeight),
-      scale: () => anime.random(1, 4),
+      scale: () => anime.random(1, 3),
       easing: "linear",
       duration: 2000,
-      delay: anime.stagger(10),
+      delay: anime.stagger(1),
       complete: animateBlocks,
     });
   };
@@ -55,7 +55,9 @@ function App() {
             className="block"
             key={value * 10 + 1}
             style={startingBlockStyle()}
-          ></div>
+          >
+            <span className="heart"></span>
+          </div>
         );
       })}
       <Question
