@@ -64,6 +64,11 @@ const getAnswersFromExpression = (expression) => {
       duplicate + (-1) ** index * (index + 1);
   });
 
+  answers = answers.map((answer) => {
+    if (answer % 1 !== 0) return answer.toFixed(3);
+    return answer;
+  });
+
   answers = shuffle(answers);
 
   return answers;
