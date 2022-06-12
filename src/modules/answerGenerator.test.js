@@ -20,4 +20,16 @@ describe("Give appropriate answers", () => {
     const answers = getAnswersFromExpression(expression);
     expect(answers.includes(8)).toBe(true);
   });
+
+  test("One multiplication followed by all sums and subtractions", () => {
+    const expression = "8 + 4 * 4 - 3 / 3";
+    const answers = getAnswersFromExpression(expression);
+    expect(answers.includes(7)).toBe(true);
+  });
+
+  test("One sum followed by correct procedure", () => {
+    const expression = "8 + 4 * 4 - 3 / 3";
+    const answers = getAnswersFromExpression(expression);
+    expect(answers.includes(47)).toBe(true);
+  });
 });
