@@ -1,5 +1,18 @@
+import { evaluate } from "mathjs";
+
+const getAnswerWithoutParentheses = (expression) => {
+  return evaluate(expression.replace(/[)(]/g, ""));
+};
+
 const getAnswersFromExpression = (expression) => {
-  return [1, 2, 3, 4, 5];
+  let answers = [];
+
+  const correctAnswer = evaluate(expression);
+  const answerWithoutParentheses = getAnswerWithoutParentheses(expression);
+
+  answers = answers.concat(correctAnswer, answerWithoutParentheses);
+
+  return answers;
 };
 
 export default getAnswersFromExpression;
