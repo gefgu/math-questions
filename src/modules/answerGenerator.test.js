@@ -18,7 +18,6 @@ describe("Give appropriate answers", () => {
   test("Sum and subtractions first", () => {
     const expression = "8 - 4 * 4 + 2 / 3";
     const answers = getAnswersFromExpression(expression);
-
     expect(answers.includes(8)).toBe(true);
   });
 });
