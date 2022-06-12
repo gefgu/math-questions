@@ -1,4 +1,5 @@
 import { evaluate } from "mathjs";
+import shuffle from "./shuffleArray";
 
 const patternSumAndMinus = /\d+[-+]\d+/g;
 const patternMultiplyAndDivide = /\d+[*/]\d+/g;
@@ -53,6 +54,8 @@ const getAnswersFromExpression = (expression) => {
     answerFromOneMultiplicationFollowedBySums,
     answerFromOneSumFollowdByCorrectProcedure
   );
+
+  answers = shuffle(answers);
   return answers;
 };
 
