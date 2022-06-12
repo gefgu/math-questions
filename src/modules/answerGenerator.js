@@ -55,7 +55,17 @@ const getAnswersFromExpression = (expression) => {
     answerFromOneSumFollowdByCorrectProcedure
   );
 
+  const answerDuplicates = answers.filter(
+    (item, index) => answers.indexOf(item) !== index
+  );
+
+  answerDuplicates.forEach((duplicate, index) => {
+    answers[answers.indexOf(duplicate)] =
+      duplicate + (-1) ** index * (index + 1);
+  });
+
   answers = shuffle(answers);
+
   return answers;
 };
 
