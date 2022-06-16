@@ -64,6 +64,17 @@ const getAnswersFromExpression = (expression) => {
       duplicate + (-1) ** index * (index + 1);
   });
 
+  const nanAnswers = answers.filter(
+    (item) => {
+      return isNaN(item) || !isFinite(item)
+    }
+  )
+
+  nanAnswers.forEach((item, index) => {
+    answers[answers.indexOf(item)] =
+      item + (-1) ** index * (index + 1) * 5;
+  });
+
   answers = answers.map((answer) => {
     if (answer % 1 !== 0) return answer.toFixed(3);
     return answer;
