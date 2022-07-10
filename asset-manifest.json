@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/math-questions/static/css/main.ba53d1c7.css",
-    "main.js": "/math-questions/static/js/main.5dbeef29.js",
+    "main.css": "/math-questions/static/css/main.224f162e.css",
+    "main.js": "/math-questions/static/js/main.f0dfb43f.js",
     "index.html": "/math-questions/index.html",
-    "main.ba53d1c7.css.map": "/math-questions/static/css/main.ba53d1c7.css.map",
-    "main.5dbeef29.js.map": "/math-questions/static/js/main.5dbeef29.js.map"
+    "main.224f162e.css.map": "/math-questions/static/css/main.224f162e.css.map",
+    "main.f0dfb43f.js.map": "/math-questions/static/js/main.f0dfb43f.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba53d1c7.css",
-    "static/js/main.5dbeef29.js"
+    "static/css/main.224f162e.css",
+    "static/js/main.f0dfb43f.js"
   ]
 }
