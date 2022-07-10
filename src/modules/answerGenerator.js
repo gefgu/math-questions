@@ -64,15 +64,12 @@ const getAnswersFromExpression = (expression) => {
       duplicate + (-1) ** index * (index + 1);
   });
 
-  const nanAnswers = answers.filter(
-    (item) => {
-      return isNaN(item) || !isFinite(item)
-    }
-  )
+  const nanAnswers = answers.filter((item) => {
+    return isNaN(item) || !isFinite(item);
+  });
 
   nanAnswers.forEach((item, index) => {
-    answers[answers.indexOf(item)] =
-      item + (-1) ** index * (index + 1) * 5;
+    answers[answers.indexOf(item)] = item + (-1) ** index * (index + 1) * 5;
   });
 
   answers = answers.map((answer) => {
@@ -85,4 +82,14 @@ const getAnswersFromExpression = (expression) => {
   return answers;
 };
 
-export {getAnswersFromExpression, getAnswerInDirectOrder};
+function getAnswerInDirectOrder(expression) {
+  expression = expression.replaceAll(" ", "");
+  const twoNumberAndOperator = /\d+[-+/*]\d+/;
+  while (expression.match(twoNumberAndOperator)) {
+    const match = expression.match(twoNumberAndOperator)[0];
+    expression = expression.replace(match, evaluate(match));
+  }
+  return +expression;
+}
+
+export { getAnswersFromExpression, getAnswerInDirectOrder };
