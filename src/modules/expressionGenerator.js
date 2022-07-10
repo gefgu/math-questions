@@ -22,18 +22,25 @@ const generateExpression = () => {
 function generateExpressionAndAnswers() {
   let finalExpression;
   let answersAreIntenger = false;
+  let answersAreEqual = true;
   do {
     let expression = generateExpression();
-    if (
-      Number.isInteger(evaluate(expression)) &&
-      Number.isInteger(getAnswerInDirectOrder(expression))
-    ) {
-      answersAreIntenger = true;
+    let answers = [evaluate(expression), getAnswerInDirectOrder(expression)];
+    console.log(answers);
+    answersAreIntenger =
+      Number.isInteger(answers[0]) &&
+      Number.isInteger(answers[1]);
+    answersAreEqual = answers[0] === answers[1];
+    if (answersAreIntenger && !answersAreEqual) {
       finalExpression = expression;
+      break;
     }
-  } while (!answersAreIntenger);
+  } while (!answersAreIntenger || answersAreEqual);
 
-  let answers = [evaluate(finalExpression), getAnswerInDirectOrder(finalExpression)];
+  let answers = [
+    evaluate(finalExpression),
+    getAnswerInDirectOrder(finalExpression),
+  ];
   answers = shuffle(answers);
   return { expression: finalExpression, answers };
 }
