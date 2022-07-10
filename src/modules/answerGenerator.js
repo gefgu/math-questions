@@ -85,4 +85,4 @@ const getAnswersFromExpression = (expression) => {
   return answers;
 };
 
-export default getAnswersFromExpression;
+export {getAnswersFromExpression, getAnswerInDirectOrder};

@@ -1,4 +1,7 @@
-import getAnswersFromExpression from "./answerGenerator";
+import {
+  getAnswersFromExpression,
+  getAnswerInDirectOrder,
+} from "./answerGenerator";
 
 describe("Give appropriate answers", () => {
   test("Give Correct Answers", () => {
@@ -10,9 +13,7 @@ describe("Give appropriate answers", () => {
   test("Ignore parentheses", () => {
     const expression = "8 - 9 * (4 + 2) / 2";
     const answers = getAnswersFromExpression(expression);
-    expect(answers.includes(-27)).toBe(
-      true
-    );
+    expect(answers.includes(-27)).toBe(true);
   });
 
   test("Sum and subtractions first", () => {
@@ -31,5 +32,13 @@ describe("Give appropriate answers", () => {
     const expression = "8 + 4 * 4 - 3 / 3";
     const answers = getAnswersFromExpression(expression);
     expect(answers.includes(47)).toBe(true);
+  });
+});
+
+describe("Run the forward order", () => {
+  test("Direct order", () => {
+    const expression = "9 - 3 * 4 + 2 * 5";
+    const directAnswer = getAnswerInDirectOrder(expression);
+    expect(directAnswer).toBe(130);
   });
 });
