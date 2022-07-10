@@ -8,9 +8,6 @@ body {
   max-width: 900px;
   min-height: 900px;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 h1 {
@@ -52,7 +49,7 @@ h1 {
 
 .answers {
   display: flex;
-  justify-content: center;
-  gap: 128px;
+  flex-direction: column;
+  gap: 64px;
   margin-top: 128px;
 }
