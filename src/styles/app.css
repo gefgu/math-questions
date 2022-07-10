@@ -6,6 +6,7 @@ body {
   padding: 16px;
   margin: auto;
   max-width: 900px;
+  min-height: 900px;
   position: relative;
   display: flex;
   flex-direction: column;
