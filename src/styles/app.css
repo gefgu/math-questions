@@ -7,6 +7,9 @@ body {
   margin: auto;
   max-width: 900px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
@@ -42,6 +45,13 @@ h1 {
   font-size: 3rem;
 }
 
-.answer .letter {
+.answer.letter {
   font-weight: lighter;
+}
+
+.answers {
+  display: flex;
+  justify-content: center;
+  gap: 128px;
+  margin-top: 128px;
 }

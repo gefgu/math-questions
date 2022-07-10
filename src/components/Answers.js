@@ -1,8 +1,7 @@
 const Answers = ({ answers }) => {
   return (
-    <div>
+    <div className="answers">
       {answers.map((answer, index) => {
-        const letters = ["a", "b", "c", "d", "e"];
         answer = `${answer}`;
         answer = answer.replace(".", ",");
         try {
@@ -10,9 +9,12 @@ const Answers = ({ answers }) => {
           answer = answer.replace(trailingZeros, "");
         } catch (e) {}
         return (
-          <p className="answer" key={answer}>
-            <span className="letter">{letters[index]})</span> {answer}
-          </p>
+          <>
+            <p className="answer" key={answer}>
+              {answer}
+            </p>
+            {index === 0 && <p className="answer letter">OU</p>}
+          </>
         );
       })}
     </div>
